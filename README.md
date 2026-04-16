@@ -203,6 +203,7 @@ repository-01 [OK]: 12 backups, 9500.00 GB free, 12000.00 GB allocated, 2000.00 
 - No official API is used (Reason: Licensing)
 - Each check follows a single responsibility principle.
 - Credentials are passed via CLI and should be protected via file permissions.
+- The monitoring user must have the necessary permissions to use the nakivo CLI
 
 ---
 
