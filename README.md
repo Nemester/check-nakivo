@@ -199,6 +199,21 @@ repository-01 [OK]: 12 backups, 9500.00 GB free, 12000.00 GB allocated, 2000.00 
 
 ## Notes and Limitations
 
+Scripts tested with following Nakivo versions:
+
+| Nakivo Version | check_nakivoJobs.sh | check_nakivoRepoState.sh | check_nakivoTransporter.sh |
+|----------------|---------------------|--------------------------|----------------------------|
+| v10.11.0       | OK                  | OK                       | OK                         |
+| v10.11.2       | OK                  | OK                       | OK                         |
+| v10.11.3       | OK                  | OK                       | OK                         |
+| V11.0.1        | OK                  | OK                       | OK                         |
+| V11.0.2        | OK                  | OK                       | OK                         |
+| V11.0.3        | OK                  | OK                       | OK                         |
+| V11.1.0        | OK                  | OK                       | OK                         |
+| V11.2.0        | OK                  | OK                       | OK                         |
+
+
+
 - The plugins rely on Nakivo CLI output parsing. Changes in CLI output format may break parsing.
 - No official API is used (Reason: Licensing)
 - Each check follows a single responsibility principle.
