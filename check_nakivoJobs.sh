@@ -2,6 +2,9 @@
 #
 # check_nakivoJobs.sh - Icinga/Nagios check of Nakivo job states
 #
+# Repository:
+#   https://github.com/Nemester/check-nakivo
+#
 # Description:
 #   Checks all Nakivo jobs and evaluates their last execution result.
 #   The overall plugin state is determined as follows:

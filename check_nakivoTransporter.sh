@@ -2,6 +2,9 @@
 #
 # check_nakivoTransporterState.sh - Icinga/Nagios check of a specific Nakivo transporter state
 #
+# Repository:
+#   https://github.com/Nemester/check-nakivo
+#
 # Description:
 #   Checks the state of a specific Nakivo transporter and optionally evaluates
 #   the current transporter load against warning and critical thresholds.
