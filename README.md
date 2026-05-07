@@ -14,6 +14,7 @@ The plugins use the Nakivo CLI to retrieve system information and evaluate the h
 ## Table of Contents
 
 - [Included Checks](#included-checks)
+- [Images](#images)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [NRPE Integration](#nrpe-integration)
@@ -32,13 +33,19 @@ The plugins use the Nakivo CLI to retrieve system information and evaluate the h
 
 ---
 
-
 ## Included Checks
 | Script | Description | Monitored Values | Thresholds | Perfdata | Logic |
 |--------|------------|------------------|------------|----------|--------|
 | **check_nakivoRepoState.sh** | Checks the state and capacity of a specific Nakivo repository | - Attached state<br>- Accessibility<br>- Number of backups<br>- Free space<br>- Allocated space<br>- Reclaimable space | - Free space<br>- Reclaimable space<br>- Allocated space | - Backups<br>- Free space<br>- Allocated space<br>- Reclaimable space | n/a |
 | **check_nakivoJobs.sh** | Checks all Nakivo jobs and evaluates their last execution result | - Job state<br>- Last execution result | n/a | n/a | - All successful → OK<br>- Not executed → WARNING<br>- Failed/other → CRITICAL |
 | **check_nakivoTransporterState.sh** | Checks the state of a specific Nakivo transporter | - Transporter state<br>- Transporter status<br>- Current load<br>- Maximum load | - Load (higher is worse) | - Load | n/a |
+
+---
+
+## Images
+
+### Example output check_nakivoJobs (all states)
+![Example Check Nakivo Jovs all states](./doc/img/nakivojobs-all-states.png)
 
 ---
 
