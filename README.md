@@ -45,7 +45,17 @@ The plugins use the Nakivo CLI to retrieve system information and evaluate the h
 ## Images
 
 ### Example output check_nakivoJobs (all states)
-![Example Check Nakivo Jovs all states](./doc/img/nakivojobs-all-states.png)
+![Example Check Nakivo Jobs all states](./doc/img/nakivojobs-all-states.png)
+
+
+### Example output check_nakivoRepoState
+![Example Check Nakivo Repo State](./doc/img/nakivoRepoState-OK.png)
+
+
+### Example output check_nakivoTransporterState
+![Example Check Nakivo Transporter State](./doc/img/nakivoTransporterState-OK.png)
+
+
 
 ---
 
