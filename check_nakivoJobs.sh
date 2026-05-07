@@ -141,7 +141,7 @@ while IFS= read -r line; do
 
     case "$last_norm" in
         "successful")
-            msg+="${msg:+$'\n  |_ '}[OK] $name "
+            msg+="${msg:+$'\n  |_ '}[OK] $name | Status: SUCCESSFUL"
             ;;
         "has not been executed yet")
             msg+="${msg:+$'\n  |_ '}[WARNING] $name | Status: PENDING"
