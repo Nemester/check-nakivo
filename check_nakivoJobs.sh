@@ -26,6 +26,7 @@
 #   1.1 - Basic job state evaluation
 #   1.2 - Improved output formatting
 #   1.3 - Refactored for robustness and consistency
+#   1.4 - Improved output format
 
 Author="Manuel Sonder"
 Version="1.3"
@@ -140,16 +141,16 @@ while IFS= read -r line; do
 
     case "$last_norm" in
         "successful")
-            msg+="${msg:+; }ID $id | $name | OK"
+            msg+="${msg:+$'\n  |_ '}[OK] $name "
             ;;
         "has not been executed yet")
-            msg+="${msg:+; }ID $id | $name | PENDING"
+            msg+="${msg:+$'\n  |_ '}[WARNING] $name | Status: PENDING"
             if [[ "$rstate" -lt "$STATE_WARNING" ]]; then
                 rstate=$STATE_WARNING
             fi
             ;;
         *)
-            msg+="${msg:+; }ID $id | $name | CRITICAL"
+            msg+="${msg:+$'\n  |_ '}[CRITICAL] $name"
             rstate=$STATE_CRITICAL
             ;;
     esac
@@ -159,13 +160,14 @@ done <<< "$jobs_output"
 
 # --- Final output ---
 if [[ "$rstate" -eq "$STATE_OK" ]]; then
-    printf '[OK]: %s\n' "$msg"
+    label="OK"
 elif [[ "$rstate" -eq "$STATE_WARNING" ]]; then
-    printf '[WARNING]: %s\n' "$msg"
+    label="WARNING"
 elif [[ "$rstate" -eq "$STATE_CRITICAL" ]]; then
-    printf '[CRITICAL]: %s\n' "$msg"
+    label="CRITICAL"
 else
     die_unknown "Unexpected return state"
 fi
 
+printf '[%s]:\n  \\_ %s\n' "$label" "$msg"
 exit "$rstate"
