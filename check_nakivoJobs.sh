@@ -141,16 +141,17 @@ while IFS= read -r line; do
 
     case "$last_norm" in
         "successful")
-            msg+="${msg:+$'\n  |_ '}[OK] $name | Status: SUCCESSFUL"
+            msg+="${msg:+$'\n  └─ '}[OK] $name | Status: SUCCESSFUL"
             ;;
         "has not been executed yet")
-            msg+="${msg:+$'\n  |_ '}[WARNING] $name | Status: PENDING"
+            msg+="${msg:+$'\n  └─ '}[WARNING] $name | Status: PENDING"
             if [[ "$rstate" -lt "$STATE_WARNING" ]]; then
                 rstate=$STATE_WARNING
             fi
             ;;
         *)
-            msg+="${msg:+$'\n  |_ '}[CRITICAL] $name"
+            last_short="$(printf '%s' "$last" | awk -F'(' '{print $1}' | tr -s ' ' | sed 's/[[:space:]]*$//' | tr '[:lower:]' '[:upper:]')"
+            msg+="${msg:+$'\n  └─ '}[CRITICAL] $name | Status: ${last_short}"
             rstate=$STATE_CRITICAL
             ;;
     esac
@@ -169,5 +170,5 @@ else
     die_unknown "Unexpected return state"
 fi
 
-printf '[%s]:\n  \\_ %s\n' "$label" "$msg"
+printf '[%s]\n  └─ %s\n' "$label" "$msg"
 exit "$rstate"
