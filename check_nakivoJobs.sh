@@ -29,7 +29,7 @@
 #   1.4 - Improved output format
 
 Author="Manuel Sonder"
-Version="1.3"
+Version="1.4"
 
 set -o nounset
 set -o pipefail
